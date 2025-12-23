@@ -812,7 +812,7 @@ def exception_type(  # type: ignore  # noqa: PLR0915
                     ),
                 )
             elif custom_llm_provider in litellm._openai_like_providers:
-                if "authorization denied for" in error_str:
+                if "authorization denied for" in error_str or "call qwen chat auth error" in error_str:
                     exception_mapping_worked = True
 
                     # Predibase returns the raw API Key in the response - this block ensures it's not returned in the exception
